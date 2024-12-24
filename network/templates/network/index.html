@@ -1,0 +1,27 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="new-post-section">
+            <h3>New Post</h3>
+            <form action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <textarea class="form-control" name="content" placeholder="What's on your mind?" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <div class="posts-section">
+        <h3>All Posts</h3>
+        {% for post in page_obj %}
+            {% include "network/post_card.html" with post=post %}
+        {% empty %}
+            <p class="no-posts">No posts yet.</p>
+        {% endfor %}
+        
+        {% include "network/pagination.html" %}
+    </div>
+{% endblock %}

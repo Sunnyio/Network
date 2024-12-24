@@ -1,0 +1,17 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<div class="edit-post-container">
+    <h3>Edit Post</h3>
+    <form action="{% url 'edit_post' post.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.content }}
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %} 

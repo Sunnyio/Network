@@ -1,0 +1,14 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div class="posts-section">
+        <h3>{{ page_title }}</h3>
+        {% for post in page_obj %}
+            {% include "network/post_card.html" with post=post %}
+        {% empty %}
+            <p class="no-posts">No posts from people you follow yet.</p>
+        {% endfor %}
+        
+        {% include "network/pagination.html" %}
+    </div>
+{% endblock %} 

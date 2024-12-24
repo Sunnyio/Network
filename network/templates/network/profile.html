@@ -1,0 +1,41 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<div class="profile-container">
+    <div class="profile-header">
+        <h2>{{ profile_user.username }}'s Profile</h2>
+        <div class="profile-stats">
+            <div class="stat-item">
+                <span class="stat-label">Followers:</span>
+                <span class="stat-value" id="followers-count">{{ followers_count }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Following:</span>
+                <span class="stat-value">{{ following_count }}</span>
+            </div>
+        </div>
+        
+        {% if user.is_authenticated and user != profile_user %}
+            <button class="btn {% if is_following %}btn-secondary{% else %}btn-primary{% endif %}" 
+                    id="follow-button" 
+                    data-user-id="{{ profile_user.id }}">
+                {% if is_following %}
+                    Unfollow
+                {% else %}
+                    Follow
+                {% endif %}
+            </button>
+        {% endif %}
+    </div>
+
+    <div class="posts-section">
+        {% for post in page_obj %}
+            {% include "network/post_card.html" with post=post %}
+        {% empty %}
+            <p class="no-posts">No posts yet.</p>
+        {% endfor %}
+        
+        {% include "network/pagination.html" %}
+    </div>
+</div>
+{% endblock %} 

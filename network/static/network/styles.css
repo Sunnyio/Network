@@ -1,0 +1,456 @@
+/* Variables for consistent colors and styling */
+:root {
+    --primary-color: #1da1f2;
+    --primary-hover: #1991db;
+    --secondary-color: #657786;
+    --background-light: #f8f9fa;
+    --background-white: #ffffff;
+    --text-dark: #14171a;
+    --text-secondary: #657786;
+    --border-color: #e1e8ed;
+    --success-color: #17bf63;
+    --danger-color: #e0245e;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation Styles */
+.navbar {
+    background-color: var(--background-white);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-brand i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.nav-item {
+    margin: 0 0.25rem;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+/* Active nav link */
+.nav-item.active .nav-link {
+    color: var(--primary-color) !important;
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+/* Main content container */
+.main-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+    
+    .nav-item {
+        margin: 0.25rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+    }
+}
+
+/* Add animation for nav items */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+/* User profile link special styling */
+.nav-item .nav-link[href^="/profile/"] {
+    font-weight: 600;
+    color: var(--primary-color) !important;
+}
+
+/* Logo animation on hover */
+.navbar-brand:hover i {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* New Post Section */
+.new-post-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: var(--background-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.new-post-section textarea {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    resize: vertical;
+    transition: var(--transition);
+}
+
+.new-post-section textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.1);
+}
+
+.new-post-section button {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.new-post-section button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* Posts Section */
+.posts-section {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.post-card {
+    background-color: var(--background-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.post-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-username a {
+    color: var(--text-dark);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.post-username a:hover {
+    color: var(--primary-color);
+}
+
+.post-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.post-content {
+    color: var(--text-dark);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+/* Like Button Styles */
+.like-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.like-button:hover {
+    color: var(--danger-color);
+    transform: scale(1.05);
+}
+
+.like-button.liked {
+    color: var(--danger-color);
+}
+
+.like-button i {
+    font-size: 1.2rem;
+}
+
+/* Profile Section */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.profile-header {
+    background-color: var(--background-white);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 1.5rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#follow-button {
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+/* Pagination Styles */
+.pagination {
+    margin-top: 2rem;
+}
+
+.page-link {
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.page-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.post-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .new-post-section, .posts-section, .profile-container {
+        margin: 1rem;
+    }
+
+    .profile-stats {
+        gap: 1.5rem;
+    }
+
+    .post-card {
+        padding: 1rem;
+    }
+}
+
+/* Edit Interface */
+.edit-interface {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.edit-textarea {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Empty State */
+.no-posts {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+    background-color: var(--background-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Add these styles to your existing CSS */
+.edit-post-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.edit-post-container h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Pagination Styling */
+.pagination-container {
+    margin: 2rem 0;
+}
+
+.pagination {
+    gap: 0.25rem;
+}
+
+.page-item {
+    margin: 0 0.125rem;
+}
+
+.page-link {
+    border-radius: 8px !important;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.page-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.page-link i {
+    font-size: 0.8rem;
+}
+
+/* Loading state */
+.posts-section.loading {
+    position: relative;
+}
+
+.posts-section.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Disable pagination during loading */
+.loading .pagination {
+    pointer-events: none;
+    opacity: 0.7;
+}
