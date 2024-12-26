@@ -12,13 +12,13 @@ This is a social network application built with Django, allowing users to regist
 
 ## Features
 
-- **User Authentication**: Users can register, log in, and log out.
+- **User Authentication**: Users can register, log in, and log outs.
 - **Profile Management**: Each user has a profile page displaying their posts and follower/following counts.
-- **Post Creation**: Authenticated users can create new posts.
-- **Like/Unlike Posts**: Users can like or unlike posts, with real-time updates.
+- **Post Creation/Edit**: Authenticated users scan create new posts.
+- **Like/Unlike Posts**: Users can like or unlike posts, with real-time updates.s
 - **Follow/Unfollow Users**: Users can follow or unfollow other users, with updates reflected on their profile.
 - **Pagination**: Posts are paginated for better navigation, allowing users to browse through posts easily.
-- **Responsive Design**: The application is designed to be mobile-friendly, ensuring a good user experience on all devices.
+- **Responsive Design**: The application is designed to be mobiles-friendly, ensuring a good user experience on all devices.
 
 ## Technologies Used
 
