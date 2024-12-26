@@ -6,7 +6,7 @@ This is a social network application built with Django, allowing users to regist
 
 ## App View
 
-![All Posts](images/all_posts.png)
+![All Posts](images/all_post.png)
 ![Profile](images/profile.png)
 ![Register](images/register.png)
 
